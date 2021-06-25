@@ -33,7 +33,6 @@ bpftool -j net show | jq '.[].xdp[] | select(.devname == "enp3s0") | .id // .mul
 ip link show dev enp3s0
 bpftool map dump name counter_map
 bpftool net detach xdp dev enp3s0
-rm /sys/fs/bpf/counter_nobtf
 
 ## Run /usr/share/bcc/tools/execsnoop
 bpftool perf show
@@ -52,6 +51,8 @@ bpftool net detach xdp dev enp3s0
 btf_id=$(bpftool map -j | jq -r '.[] | select(.name == "counter_map") | select(.btf_id) | .btf_id')
 bpftool btf dump id "$btf_id"
 bpftool btf show
+
+rm /sys/fs/bpf/counter_nobtf
 
 # More Complex Example
 
