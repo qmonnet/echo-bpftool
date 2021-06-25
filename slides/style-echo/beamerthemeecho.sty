@@ -1,0 +1,74 @@
+\usetheme{default}
+
+\RequirePackage{tikz}
+\RequirePackage{xpatch}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+
+\definecolor{accent}{HTML}{cc0033}
+\setbeamercolor*{title}{bg=accent,fg=white}
+\setbeamercolor*{Title bar}{fg=accent}
+\setbeamercolor*{frametitle}{parent=Title bar}
+%\setbeamercolor*{normal text}{fg=colbody}
+
+%\usecolortheme[named=accent]{structure}
+
+\useinnertheme{circles}
+\setbeamercolor{itemize item}{fg=accent}
+\setbeamercolor{itemize subitem}{fg=accent}
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[circle]
+
+%\setbeamerfont{quote}{size=\footnotesize}
+\setbeamerfont{alerted text}{series=\bfseries}
+
+\setlength{\parskip}{.5em}
+
+\xpatchcmd{\itemize}
+  {\def\makelabel}
+  {\setlength{\itemsep}{2ex}\def\makelabel}
+  {}
+  {}
+
+\hypersetup{%
+  colorlinks,
+  linkcolor=,
+  urlcolor=accent,
+}
+
+%\setbeamerfont{date}{size=\normalsize,shape=\upshape}
+%\setbeamerfont{author}{size=\Huge,series=\mdseries,shape=\itshape}
+%\setbeamerfont{title}{size*={30}{36},series=\bfseries}
+%\setbeamerfont{subtitle}{size=\Huge,series=\bfseries}
+%\setbeamerfont{section title}{size=\Huge,series=\bfseries}
+%\setbeamerfont{frametitle}{size=\Huge,series=\bfseries}
+%\setbeamercolor*{title}{fg=accent}
+%\setbeamercolor*{author}{fg=accent}
+
+\setbeamertemplate{title page}
+{%
+  \begingroup
+    \tikz[remember picture,overlay] \node[anchor=center, inner sep=0pt] at (current page.center){\includegraphics[height=\paperheight]{style-echo/title.png}};
+    %\vfill%
+    %\usebeamercolor[fg]{title}\usebeamerfont{title}\inserttitle\par%
+    %\ifx\insertsubtitle\@empty%
+    %\else%
+      %{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+    %\fi%
+    %\vskip\baselineskip%
+    %\usebeamercolor[fg]{author}%
+    %\usebeamerfont{author}\insertauthor\par%
+    %\usebeamerfont{date}\insertdate\par%
+    %\vfill
+  \endgroup
+}
+
+%\addtobeamertemplate{frametitle}{%
+%\begin{tikzpicture}[remember picture,overlay]
+%\node[anchor=north west, inner sep=0pt] at (current page.north west) {%
+    %\includegraphics[width=\paperwidth]{style-kubecon/headline.jpg}%
+%};
+%\end{tikzpicture}
+%\vskip-\baselineskip}{\vskip5pt}

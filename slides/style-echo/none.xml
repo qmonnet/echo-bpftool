@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language name="none" version="1">
+  <highlighting>
+    <contexts>
+      <context name="Start" attribute="Normal Text" lineEndContext="#stay">
+      </context>
+    </contexts>
+    <itemDatas>
+      <itemData name="Normal Text" defStyleNum="dsNormal"/>
+    </itemDatas>
+  </highlighting>
+</language>
